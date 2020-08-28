@@ -17,38 +17,32 @@ public class PasswordCheck {
         if (checkUppercase(password))
         {
             count++;
-            countPinakas[0]=1;
-            System.out.print(" 1 OK ");
+            countPinakas[0]=1;         
         }
         if(checkLowecase(password))
         {
             countPinakas[1]=1;
             count++;
-            System.out.print(" 2 OK ");
         }
         if(checkNumber(password))
         {
             countPinakas[2]=1;
             count++;
-            System.out.print(" 3 OK ");
         }
         if(checkSpecialCharacter(password))
         {
             countPinakas[3]=1;
             count++;
-            System.out.print(" 4 OK ");
         }
         if(checkNumberOfCharacters(password))
         {
             countPinakas[4]=1;
             count++;
-            System.out.print(" 5 OK ");
         }
         if(checkDuplicates(password))
         {
             countPinakas[5]=1;
             count++;
-            System.out.print(" 6 OK ");
         }
 
 
@@ -70,9 +64,6 @@ public class PasswordCheck {
         {
             System.out.print("Very Strong password");
         }
-
-
-
     }
 
     private static boolean checkUppercase(String password) {
@@ -81,11 +72,10 @@ public class PasswordCheck {
             return false;
         else
             return true;
-
-
     }
 
     private static boolean checkLowecase(String password) {
+        
         if (password.equals(password.toUpperCase()))
             return false;
         else
@@ -102,8 +92,8 @@ public class PasswordCheck {
     }
 
     private static boolean checkSpecialCharacter(String password) {
+        
         String pattern =  "^(?=.*[@#$%^&!.+=])(?=\\S+$).{8,}$";
-
         if(password.matches(pattern))
             return true;
         else
@@ -111,8 +101,8 @@ public class PasswordCheck {
     }
 
     private static boolean checkNumberOfCharacters(String password) {
+        
         String pattern = ".{8,}";
-
         if(password.matches(pattern))
             return true;
         else
@@ -121,21 +111,17 @@ public class PasswordCheck {
 
     private static boolean checkDuplicates(String password) {
         String pattern = "^(abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu"
-                + "|tuv|uvw|vwx|wxy|xyz|012|123|234|345|456|567|678|789).{8,}$";
+                + "|tuv|uvw|vwx|wxy|xyz|012|123|234|345|456|567|678|789)$";
 
         for (int i =0; i< password.length()-2; i++)
         {
-
             if( (password.charAt(i)==password.charAt(i+1)) && (password.charAt(i)==password.charAt(i+2)) && (password.matches(pattern))  )
             {
                 return true;
             }
-
         }
-
         return false;
     }
-
 }
 
 
