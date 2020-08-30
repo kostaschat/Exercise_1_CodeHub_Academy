@@ -4,60 +4,44 @@ import java.util.Scanner;
 
 public class MyStack {
 
-    private int max=100;
-
-    private  int top=0;
-
-    int [] myStack = new int [max];
+    private int max = 100;
+    private int top = 0;
+    int[] myStack = new int[max];
 
 
-    public   int [] push() {
-        String msg="You can not add any more numbers in stack";
-        if (top>=max)
-        {
-            System.out.print(msg);
+    public int[] push() {
+
+        if (top >= max) {
+            System.out.print("You can not add any more numbers in stack");
             return myStack;
-        }
-        else
-        {
-            String pushNumber = "Give a number: ";
-            System.out.print(pushNumber);
+        } else {
+            System.out.print("Give a number: ");
             Scanner input = new Scanner(System.in);
-            int number= input.nextInt();
-            myStack[top]=number;
+            int number = input.nextInt();
+            System.out.println();
+            myStack[top] = number;
             top++;
-            System.out.println("TOP IS " +top);
             return myStack;
         }
     }
 
-    public  int []  pop() {
-        String message= "Stack Underflow";
+    public int[] pop() {
         if (top <= 0) {
-            System.out.println(message);
+            System.out.println("Stack Underflow");
             return myStack;
-        }
-        else{
-            myStack[top]=0;
+        } else {
+            myStack[top] = 0;
             top--;
-
         }
-
         return myStack;
     }
 
-    public  void peek() {
-        String messageEmprty = "The stack is empty. ";
-        if(top==0)
-        {
-            System.out.println(messageEmprty );
-        }
-        else
-        {
-            String message = "The peek number of stack is: ";
-            System.out.println(message +myStack[top-1] +"\n");
-        }
-    }
+    public void peek() {
+        if (top == 0)
+            System.out.println("The stack is empty. ");
+         else
+            System.out.println("The peek number of stack is: " + myStack[top - 1] + "\n");
 
+    }
 
 }

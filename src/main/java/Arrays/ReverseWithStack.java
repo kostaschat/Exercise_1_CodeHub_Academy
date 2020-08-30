@@ -1,22 +1,23 @@
 package Arrays;
+
 import java.util.Scanner;
 import java.util.Stack;
 
 public class ReverseWithStack {
     public static void reverseWithStack() {
-        Stack <Character> myStack = new Stack <Character>();
+        Stack<Character> myStack = new Stack<>();
         Scanner input = new Scanner(System.in);
-
-        String message = "Give a word: ";
-        System.out.print(message);
+        System.out.println();
+        System.out.print("Give a word: ");
         String word = input.nextLine();
 
-        for(int i = 0; i< word.length(); i++)
+        //fill stack with characters from word
+        for (int i = 0; i < word.length(); i++)
             myStack.push(word.charAt(i));
-
-        for(int i = 0; i< word.length(); i++)
+        System.out.print("Reverse word is: ");
+        //print one by one the characters
+        for (int i = 0; i < word.length(); i++)
             System.out.print(myStack.pop());
 
     }
-
 }
